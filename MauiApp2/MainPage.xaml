@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.MainPage"
+             Title="СЧЁТЧИКИ">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem IconImageSource="" Text="ДОБАВИТЬ" Clicked="AddDevicePage"/>-->
+        <ToolbarItem IconImageSource="" Text="СИНХРОНИЗИРОВАТЬ" Clicked="SyncDeviceList"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ListView x:Name="DeviceList" ItemsSource="{Binding}"
+                  ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" FontSize="Medium" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="ВНЕСТИ ДАННЫЕ" Clicked="PushPageEditDataDevice" />
+        <Button Text="ВЫГРУЗИТЬ ВСЕ ДАННЫЕ" Clicked="UploadAllData" />
+    </StackLayout>
+</ContentPage>

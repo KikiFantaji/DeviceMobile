@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Views.Pages.EditDeviceDataPage"
+             Title="Данные">
+    <StackLayout>
+        <Label Text="Прибор" />
+        <Picker x:Name="pickerDevice" 
+                ItemsSource="{Binding}" ItemDisplayBinding="{Binding Name}"/>
+        <Label Text="Значение" />
+        <Entry x:Name="entryValue" Text="{Binding Value}" />
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Сохранить" Clicked="SaveData" />
+            <Button Text="Отмена" Clicked="Cancel" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

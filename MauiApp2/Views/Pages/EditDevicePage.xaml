@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Views.Pages.EditDevicePage"
+             Title="ПРИБОР">
+    <VerticalStackLayout>
+        <Label Text="Имя" />
+        <Entry x:Name="entryNameDevice" Text="{Binding Name}" />
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Сохранить" Clicked="SaveData" />
+            <Button Text="Отмена" Clicked="Cancel" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
