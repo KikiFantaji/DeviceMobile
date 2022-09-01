@@ -17,7 +17,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Добавить" Margin="5" Clicked="CreateData" />
-        <Button Text="Выгрузить" Margin="5" Clicked="UploadData" />
+        <!--<Button Text="ДОБАВИТЬ" Margin="5" Clicked="CreateData" />-->
+        <Button Text="ВЫГРУЗИТЬ" Margin="5" Clicked="UploadData" />
     </StackLayout>
 </ContentPage>

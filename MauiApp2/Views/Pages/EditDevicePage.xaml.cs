@@ -27,8 +27,8 @@ public partial class EditDevicePage : ContentPage
         try
         {
             //var device = (DeviceBase)BindingContext;
-            var device = new DeviceBase { Name = entryNameDevice.Text };
-            if (!String.IsNullOrEmpty(device.Name))
+            var device = new DeviceBase { Id = entryNameDevice.Text };
+            if (!String.IsNullOrEmpty(device.Id))
             {
                 App.DeviceBase.SaveItem(device);
             }

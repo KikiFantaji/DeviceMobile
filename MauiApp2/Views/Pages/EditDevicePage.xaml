@@ -3,12 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.Views.Pages.EditDevicePage"
              Title="ПРИБОР">
-    <VerticalStackLayout>
-        <Label Text="Имя" />
-        <Entry x:Name="entryNameDevice" Text="{Binding Name}" />
-        <StackLayout Orientation="Horizontal">
-            <Button Text="Сохранить" Clicked="SaveData" />
-            <Button Text="Отмена" Clicked="Cancel" />
+    <VerticalStackLayout Margin="5">
+        <Label Text="ИМЯ" Margin="5"/>
+        <StackLayout BackgroundColor="LightGray" Margin="5">
+            <Entry x:Name="entryNameDevice" Text="{Binding Id}"  Margin="5,0" 
+               BackgroundColor="LightGray" Keyboard="Telephone"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="5">
+            <Button Text="СОХРАНИТЬ" Clicked="SaveData"  Margin="5"/>
+            <Button Text="ОТМЕНА" Clicked="Cancel" Margin="5"/>
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

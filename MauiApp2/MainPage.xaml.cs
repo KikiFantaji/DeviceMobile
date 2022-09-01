@@ -82,8 +82,7 @@ public partial class MainPage : ContentPage
                 {
                     App.DeviceBase.SaveItem(new DeviceBase
                     {
-                        Id = Convert.ToInt32(reader.GetValue(0)),
-                        Name = Convert.ToString(reader.GetValue(1))
+                        Id = Convert.ToString(reader.GetValue(0))
                     });
                     countAddData++;
                 }
@@ -153,6 +152,8 @@ public partial class MainPage : ContentPage
         {
             Data.MysqlCon.Close();
             Data.MysqlCon.Open();
+            UploadAllDevice();
+            //DisplayAlert("", $"Успешно выгружено счётчиков - {UploadAllDevice()}", "Ok");
             DisplayAlert("", $"Успешно выгружено данных - {UploadAllDataDevice()}", "Ok");
         }
         catch
@@ -163,6 +164,55 @@ public partial class MainPage : ContentPage
         {
             Data.MysqlCon.Close();
         }
+    }
+
+    /// <summary>
+    /// Выгрузка счётчиков в таблицу 
+    /// </summary>
+    /// <returns>Количество выгруженных записей</returns>
+    private int UploadAllDevice()
+    {
+        try
+        {
+            var devicesMysql = new List<DeviceBase>();
+            using (var cmd = new MySqlCommand(SelectQuery.SelectAllDevice, Data.MysqlCon))
+            {
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    devicesMysql.Add(new DeviceBase
+                    {
+                        Id = Convert.ToString(reader.GetValue(0))
+                    });
+                }
+            }
+
+            Data.MysqlCon.Close();
+            Data.MysqlCon.Open();
+
+            var devicesSqlite = App.DeviceBase.GetItems();
+            var countAddDevice = 0; // Счётчик затронутых записей
+
+            foreach (var device in devicesSqlite)
+            {
+                if (devicesMysql.FirstOrDefault(d => d.Id == device.Id) == null)
+                {
+                    using (var cmd = new MySqlCommand(InsertQuery.InsertDevice(device), Data.MysqlCon))
+                    {
+                        cmd.ExecuteNonQuery();
+                        countAddDevice++;
+                    }
+                }
+            }
+
+            return countAddDevice;
+        }
+        catch (Exception ex)
+        {
+            DisplayAlert("Ошибка", ex.Message, "Ok");
+        }
+
+        return 0;
     }
 
     /// <summary>

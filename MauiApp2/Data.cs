@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using MauiApp2.Models;
+using MySqlConnector;
 
 namespace MauiApp2
 {

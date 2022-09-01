@@ -39,9 +39,9 @@ public partial class DeviceDataPage : ContentPage
     {
         try
         {
-            var devicePage = new DeviceDataPage();
-            devicePage.BindingContext = (DeviceBase)BindingContext;
-            await Navigation.PushAsync(devicePage);
+            var editDevicePage = new EditDeviceDataPage();
+            editDevicePage.BindingContext = BindingContext;
+            await Navigation.PushAsync(editDevicePage);
         }
         catch (Exception ex)
         {

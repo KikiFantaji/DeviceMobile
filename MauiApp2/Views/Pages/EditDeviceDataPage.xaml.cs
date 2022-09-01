@@ -41,7 +41,8 @@ public partial class EditDeviceDataPage : ContentPage
                 Date = DateTime.Now,
                 Value = int.Parse(entryValue.Text)
             };
-            if (!String.IsNullOrEmpty(device.Value.ToString()) && device.DeviceId != 0)
+            if (!String.IsNullOrEmpty(device.Value.ToString()) &&
+                !String.IsNullOrEmpty(device.DeviceId.ToString()))
             {
                 App.DeviceData.SaveItem(device);
             }

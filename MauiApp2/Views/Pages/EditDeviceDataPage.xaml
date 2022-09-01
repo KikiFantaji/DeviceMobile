@@ -2,20 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.Views.Pages.EditDeviceDataPage"
-             Title="Данные">
+             Title="ДАННЫЕ">
     <StackLayout Margin="5">
-        <Label Text="Прибор"  Margin="5"/>
+        <Label Text="ПРИБОР"  Margin="5"/>
         <Picker x:Name="pickerDevice" Margin="5" BackgroundColor="LightGray"
-                ItemsSource="{Binding}" ItemDisplayBinding="{Binding Name}" 
+                ItemsSource="{Binding}" ItemDisplayBinding="{Binding Id}"
                 HorizontalTextAlignment="Center"/>
-        <Label Text="Значение"  Margin="5"/>
+        <Label Text="ЗНАЧЕНИЕ"  Margin="5"/>
         <StackLayout Margin="5" BackgroundColor="LightGray">
             <Entry x:Name="entryValue" Margin="5,0" BackgroundColor="LightGray" 
                Text="{Binding Value}" Keyboard="Telephone"/>
         </StackLayout>
         <StackLayout Orientation="Horizontal" Margin="5">
-            <Button Text="Сохранить" Clicked="SaveData"  Margin="5"/>
-            <Button Text="Отмена" Clicked="Cancel" Margin="5"/>
+            <Button Text="СОХРАНИТЬ" Clicked="SaveData"  Margin="5"/>
+            <Button Text="НАЗАД" Clicked="Cancel" Margin="5"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

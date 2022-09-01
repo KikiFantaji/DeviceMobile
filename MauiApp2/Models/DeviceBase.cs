@@ -3,8 +3,8 @@
 namespace MauiApp2.Models
 {
     [Table("DeviceBase")]
-    public class DeviceBase : Base
+    public class DeviceBase
     {
-        public string Name { get; set; }
+        public string Id { get; set; }
     }
 }

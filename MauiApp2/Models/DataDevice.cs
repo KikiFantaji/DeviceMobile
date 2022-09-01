@@ -5,7 +5,7 @@ namespace MauiApp2.Models
     [Table("DataDevice")]
     public class DataDevice : Base
     {
-        public int DeviceId { get; set; }
+        public string DeviceId { get; set; }
 
         public DateTime Date { get; set; }
 

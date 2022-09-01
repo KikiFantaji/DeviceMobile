@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fa="http://schemas.fontawesome.com/icons/"
              x:Class="MauiApp2.MainPage"
              Title="СЧЁТЧИКИ">
     <ContentPage.ToolbarItems>
-        <!--<ToolbarItem IconImageSource="" Text="ДОБАВИТЬ" Clicked="AddDevicePage"/>-->
+        <ToolbarItem IconImageSource="" Text="ДОБАВИТЬ" Clicked="AddDevicePage"/>
         <ToolbarItem IconImageSource="" Text="СИНХРОНИЗИРОВАТЬ" Clicked="SyncDeviceList"/>
     </ContentPage.ToolbarItems>
     <StackLayout Margin="5">
@@ -15,7 +16,7 @@
                     <ViewCell>
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Name}" FontSize="Medium" />
+                                <Label Text="{Binding Id}" FontSize="Medium" />
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>
