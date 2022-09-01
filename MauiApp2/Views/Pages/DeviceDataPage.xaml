@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.Views.Pages.DeviceDataPage"
              Title="НЕВЫГРУЖЕННЫЕ ДАННЫЕ">
-    <StackLayout>
-        <ListView x:Name="DeviceDataList" ItemsSource="{Binding}">
+    <StackLayout Margin="5">
+        <ListView x:Name="DeviceDataList" ItemsSource="{Binding}" Margin="5">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -17,7 +17,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Добавить" Clicked="CreateData" />
-        <Button Text="Выгрузить" Clicked="UploadData" />
+        <Button Text="Добавить" Margin="5" Clicked="CreateData" />
+        <Button Text="Выгрузить" Margin="5" Clicked="UploadData" />
     </StackLayout>
 </ContentPage>

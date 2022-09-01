@@ -7,8 +7,8 @@
         <!--<ToolbarItem IconImageSource="" Text="ДОБАВИТЬ" Clicked="AddDevicePage"/>-->
         <ToolbarItem IconImageSource="" Text="СИНХРОНИЗИРОВАТЬ" Clicked="SyncDeviceList"/>
     </ContentPage.ToolbarItems>
-    <StackLayout>
-        <ListView x:Name="DeviceList" ItemsSource="{Binding}"
+    <StackLayout Margin="5">
+        <ListView x:Name="DeviceList" ItemsSource="{Binding}" Margin="5"
                   ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -22,7 +22,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="ВНЕСТИ ДАННЫЕ" Clicked="PushPageEditDataDevice" />
-        <Button Text="ВЫГРУЗИТЬ ВСЕ ДАННЫЕ" Clicked="UploadAllData" />
+        <Button Text="ВНЕСТИ ДАННЫЕ" Margin="5" Clicked="PushPageEditDataDevice" />
+        <Button Text="ВЫГРУЗИТЬ ВСЕ ДАННЫЕ" Margin="5" Clicked="UploadAllData" />
     </StackLayout>
 </ContentPage>

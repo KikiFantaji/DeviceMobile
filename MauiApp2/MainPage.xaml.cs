@@ -110,6 +110,7 @@ public partial class MainPage : ContentPage
             Data.MysqlCon.Open();
             App.DeviceBase.DeleteItems();
             DisplayAlert("", $"Успешно синхронизированно записей - {AddDeviceToLocalDb()}", "Ok");
+            OnAppearing();
         }
         catch (Exception ex)
         {
