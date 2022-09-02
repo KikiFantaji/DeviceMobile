@@ -5,9 +5,10 @@
              Title="ДАННЫЕ">
     <StackLayout Margin="5">
         <Label Text="ПРИБОР"  Margin="5"/>
-        <Picker x:Name="pickerDevice" Margin="5" BackgroundColor="LightGray"
+        <Label x:Name="labelDivice" Text="{Binding}"  Margin="5"/>
+        <!--<Picker x:Name="pickerDevice" Margin="5" BackgroundColor="LightGray"
                 ItemsSource="{Binding}" ItemDisplayBinding="{Binding Id}"
-                HorizontalTextAlignment="Center"/>
+                HorizontalTextAlignment="Center"/>-->
         <Label Text="ЗНАЧЕНИЕ"  Margin="5"/>
         <StackLayout Margin="5" BackgroundColor="LightGray">
             <Entry x:Name="entryValue" Margin="5,0" BackgroundColor="LightGray" 

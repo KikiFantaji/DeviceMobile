@@ -2,6 +2,7 @@
 using MauiApp2.Query;
 using MauiApp2.Views.Pages;
 using MySqlConnector;
+using ZXing.Net.Maui;
 
 namespace MauiApp2;
 
@@ -19,10 +20,33 @@ public partial class MainPage : ContentPage
     {
         base.OnAppearing();
 
+        barcodeReader.IsDetecting = true;
+
         try
         {
             // Установление источника данных для списка счётчиков
-            DeviceList.ItemsSource = App.DeviceBase.GetItems();
+            //DeviceList.ItemsSource = App.DeviceBase.GetItems();
+        }
+        catch (Exception ex)
+        {
+            DisplayAlert("Ошибка", ex.Message, "Ok");
+        }
+    }
+
+    private void CameraBarcodeReaderView_BarcodesDetected(object sender, BarcodeDetectionEventArgs e)
+    {
+        try
+        {
+            Dispatcher.Dispatch(async () =>
+            {
+                barcodeReader.IsDetecting = false;
+                //barcodeResult.Text = $"{e.Results[0].Value} {e.Results[0].Format}";
+                var editDeviceDataPage = new EditDeviceDataPage();
+                var deviceDesc = $"{e.Results[0].Value} {e.Results[0].Format}";
+                var idDevice = deviceDesc.Split(';');
+                editDeviceDataPage.BindingContext = idDevice[0].Substring(3);
+                await Navigation.PushAsync(editDeviceDataPage);
+            });
         }
         catch (Exception ex)
         {

@@ -4,7 +4,7 @@ namespace MauiApp2.Views.Pages;
 
 public partial class EditDevicePage : ContentPage
 {
-	public EditDevicePage()
+    public EditDevicePage()
 	{
 		InitializeComponent();
 	}

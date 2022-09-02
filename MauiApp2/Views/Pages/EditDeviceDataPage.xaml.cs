@@ -17,7 +17,8 @@ public partial class EditDeviceDataPage : ContentPage
         base.OnAppearing();
         try
         {
-            pickerDevice.ItemsSource = App.DeviceBase.GetItems().ToList();
+            //pickerDevice.ItemsSource = App.DeviceBase.GetItems().ToList();
+            labelDivice.Text = BindingContext.ToString();
         }
         catch (Exception ex)
         {
@@ -34,10 +35,11 @@ public partial class EditDeviceDataPage : ContentPage
     {
         try
         {
+            App.DeviceBase.SaveItem(new DeviceBase { Id = labelDivice.Text });
             //var device = (DataDevice)BindingContext;
             var device = new DataDevice
             {
-                DeviceId = ((DeviceBase)pickerDevice.SelectedItem).Id,
+                DeviceId = labelDivice.Text,
                 Date = DateTime.Now,
                 Value = int.Parse(entryValue.Text)
             };

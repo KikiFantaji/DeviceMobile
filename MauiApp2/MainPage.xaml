@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:fa="http://schemas.fontawesome.com/icons/"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI"
              x:Class="MauiApp2.MainPage"
              Title="СЧЁТЧИКИ">
     <ContentPage.ToolbarItems>
@@ -9,7 +10,7 @@
         <ToolbarItem IconImageSource="" Text="СИНХРОНИЗИРОВАТЬ" Clicked="SyncDeviceList"/>
     </ContentPage.ToolbarItems>
     <StackLayout Margin="5">
-        <ListView x:Name="DeviceList" ItemsSource="{Binding}" Margin="5"
+        <!--<ListView x:Name="DeviceList" ItemsSource="{Binding}" Margin="5"
                   ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -23,7 +24,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="ВНЕСТИ ДАННЫЕ" Margin="5" Clicked="PushPageEditDataDevice" />
+        <Button Text="ВНЕСТИ ДАННЫЕ" Margin="5" Clicked="PushPageEditDataDevice" />-->
+
+        <zxing:CameraBarcodeReaderView x:Name="barcodeReader" Margin="5"
+                                       
+                                       IsDetecting="False" IsTorchOn="False" 
+                                       BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" />
+
         <Button Text="ВЫГРУЗИТЬ ВСЕ ДАННЫЕ" Margin="5" Clicked="UploadAllData" />
     </StackLayout>
 </ContentPage>
