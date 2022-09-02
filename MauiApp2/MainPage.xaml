@@ -5,35 +5,17 @@
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI"
              x:Class="MauiApp2.MainPage"
              Title="СЧЁТЧИКИ">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="" Text="ДОБАВИТЬ" Clicked="AddDevicePage"/>
-        <ToolbarItem IconImageSource="" Text="СИНХРОНИЗИРОВАТЬ" Clicked="SyncDeviceList"/>
-    </ContentPage.ToolbarItems>
     <StackLayout Margin="5">
-        <!--<ListView x:Name="DeviceList" ItemsSource="{Binding}" Margin="5"
-                  ItemSelected="OnItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Id}" FontSize="Medium" />
-                            </StackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button Text="ВНЕСТИ ДАННЫЕ" Margin="5" Clicked="PushPageEditDataDevice" />-->
         <StackLayout Margin="5" VerticalOptions="StartAndExpand">
-            <Label VerticalOptions="Center" Margin="25" Text="ОТСКАНИРУЙТЕ QR КОД" HorizontalOptions="Center" 
-                   FontSize="24" FontAttributes="Bold"/>
+            <Label VerticalOptions="Center" Margin="25" Text="ОТСКАНИРУЙТЕ QR КОД" 
+                   HorizontalOptions="Center" FontSize="24" FontAttributes="Bold"
+            />
         </StackLayout>
         <StackLayout Margin="5">
-            <zxing:CameraBarcodeReaderView x:Name="barcodeReader" Margin="5"
-                                       
-                                       IsDetecting="False" IsTorchOn="False" 
-                                       BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" />
+            <zxing:CameraBarcodeReaderView x:Name="barcodeReader" Margin="5" 
+                                           IsDetecting="False" IsTorchOn="False" 
+                                           BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" 
+            />
         </StackLayout>
         <StackLayout Margin="15" VerticalOptions="EndAndExpand">
             <Button Text="ВЫГРУЗИТЬ ВСЕ ДАННЫЕ" Margin="5" Clicked="UploadAllData" />

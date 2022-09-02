@@ -20,12 +20,9 @@ public partial class MainPage : ContentPage
     {
         base.OnAppearing();
 
-        barcodeReader.IsDetecting = true;
-
         try
         {
-            // Установление источника данных для списка счётчиков
-            //DeviceList.ItemsSource = App.DeviceBase.GetItems();
+            barcodeReader.IsDetecting = true;
         }
         catch (Exception ex)
         {
@@ -51,42 +48,6 @@ public partial class MainPage : ContentPage
         catch (Exception ex)
         {
             DisplayAlert("Ошибка", ex.Message, "Ok");
-        }
-    }
-
-    /// <summary>
-    /// Переход на страницу добавления данных
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private async void PushPageEditDataDevice(object sender, EventArgs e)
-    {
-        try
-        {
-            var editdeviceDataPage = new EditDeviceDataPage();
-            await Navigation.PushAsync(editdeviceDataPage);
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert("Ошибка", ex.Message, "Ok");
-        }
-    }
-
-    /// <summary>
-    /// Переход на страницу добавления счётчика
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private async void AddDevicePage(object sender, EventArgs e)
-    {
-        try
-        {
-            var devicePage = new EditDevicePage();
-            await Navigation.PushAsync(devicePage);
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert("Ошибка", ex.Message, "Ok");
         }
     }
 
@@ -118,31 +79,6 @@ public partial class MainPage : ContentPage
             DisplayAlert("Ошибка", ex.Message, "Ok");
         }
         return 0;
-    }
-
-    /// <summary>
-    /// Синхронизация счётчиков
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void SyncDeviceList(object sender, EventArgs e)
-    {
-        try
-        {
-            Data.MysqlCon.Close();
-            Data.MysqlCon.Open();
-            App.DeviceBase.DeleteItems();
-            DisplayAlert("", $"Успешно синхронизированно записей - {AddDeviceToLocalDb()}", "Ok");
-            OnAppearing();
-        }
-        catch (Exception ex)
-        {
-            DisplayAlert("Ошибка", ex.Message, "Ok");
-        }
-        finally
-        {
-            Data.MysqlCon.Close();
-        }
     }
 
     /// <summary>
@@ -252,7 +188,8 @@ public partial class MainPage : ContentPage
 
             foreach (var device in deviceData)
             {
-                using (var cmd = new MySqlCommand(InsertQuery.InsertDeviceData(device), Data.MysqlCon))
+                using (var cmd = 
+                    new MySqlCommand(InsertQuery.InsertDeviceData(device), Data.MysqlCon))
                 {
                     cmd.ExecuteNonQuery();
                     countAddData++;
