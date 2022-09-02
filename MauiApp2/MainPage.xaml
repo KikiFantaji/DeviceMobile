@@ -25,12 +25,18 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Text="ВНЕСТИ ДАННЫЕ" Margin="5" Clicked="PushPageEditDataDevice" />-->
-
-        <zxing:CameraBarcodeReaderView x:Name="barcodeReader" Margin="5"
+        <StackLayout Margin="5" VerticalOptions="StartAndExpand">
+            <Label VerticalOptions="Center" Margin="25" Text="ОТСКАНИРУЙТЕ QR КОД" HorizontalOptions="Center" 
+                   FontSize="24" FontAttributes="Bold"/>
+        </StackLayout>
+        <StackLayout Margin="5">
+            <zxing:CameraBarcodeReaderView x:Name="barcodeReader" Margin="5"
                                        
                                        IsDetecting="False" IsTorchOn="False" 
                                        BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" />
-
-        <Button Text="ВЫГРУЗИТЬ ВСЕ ДАННЫЕ" Margin="5" Clicked="UploadAllData" />
+        </StackLayout>
+        <StackLayout Margin="15" VerticalOptions="EndAndExpand">
+            <Button Text="ВЫГРУЗИТЬ ВСЕ ДАННЫЕ" Margin="5" Clicked="UploadAllData" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>
