@@ -15,23 +15,22 @@ public partial class EditServerDataPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        //try
-        //{
-        //    // TODO: Загрузка текущих данных
-        var serverData = App.DataServer.GetItems().FirstOrDefault();
-        if (serverData != null)
+        try
         {
-            entryServer.Text = serverData.Server;
-            entryDatabase.Text = serverData.DataBase;
-            entryPassword.Text = serverData.Password;
-            entryPort.Text = serverData.Port;
-            entryUser.Text = serverData.User;
+            var serverData = App.DataServer.GetItems().FirstOrDefault();
+            if (serverData != null)
+            {
+                entryServer.Text = serverData.Server;
+                entryDatabase.Text = serverData.DataBase;
+                entryPassword.Text = serverData.Password;
+                entryPort.Text = serverData.Port;
+                entryUser.Text = serverData.User;
+            }
         }
-        //}
-        //catch (Exception ex)
-        //{ 
-        //    DisplayAlert("Ошибка", ex.Message, "Ok");
-        //}
+        catch (Exception ex)
+        {
+            DisplayAlert("Ошибка", ex.Message, "Ok");
+        }
     }
 
     /// <summary>
@@ -43,17 +42,28 @@ public partial class EditServerDataPage : ContentPage
     {
         try
         {
-            var serverData = new DataServer()
+            if (!string.IsNullOrWhiteSpace(entryDatabase.Text) &&
+                !string.IsNullOrWhiteSpace(entryPassword.Text) &&
+                !string.IsNullOrWhiteSpace(entryPort.Text) &&  int.TryParse(entryPort.Text, out int a) &&
+                !string.IsNullOrWhiteSpace(entryServer.Text) && 
+                !string.IsNullOrWhiteSpace(entryUser.Text))
             {
-                DataBase = entryDatabase.Text,
-                Password = entryPassword.Text,
-                Port = entryPort.Text,
-                Server = entryServer.Text,
-                User = entryUser.Text
-            };
-            App.DataServer.DeleteItems();
-            App.DataServer.SaveItem(serverData);
-            this.Navigation.PopAsync();
+                var serverData = new DataServer()
+                {
+                    DataBase = entryDatabase.Text,
+                    Password = entryPassword.Text,
+                    Port = entryPort.Text,
+                    Server = entryServer.Text,
+                    User = entryUser.Text
+                };
+                App.DataServer.DeleteItems();
+                App.DataServer.SaveItem(serverData);
+                this.Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert("Ошибка", "Поля не заполнены или заполнены неправильно.", "Ok");
+            }
         }
         catch (Exception ex)
         {
