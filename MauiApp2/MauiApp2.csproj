@@ -60,6 +60,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\Pages\EditServerDataPage.xaml.cs">
+	    <DependentUpon>EditServerDataPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Pages\EditDeviceDataPage.xaml.cs">
 	    <DependentUpon>EditDeviceDataPage.xaml</DependentUpon>
 	  </Compile>
@@ -70,6 +73,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\Pages\DeviceListPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\EditServerDataPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\EditDeviceDataPage.xaml">

@@ -7,6 +7,7 @@ public partial class App : Application
     public const string DATABASE_NAME = "Offlink.db";
     public static DeviceService databaseDevice;
     public static DeviceDataService databaseDeviceData;
+    public static DataServerService dataServerService;
 
     public static DeviceService DeviceBase
     {
@@ -37,6 +38,22 @@ public partial class App : Application
                             DATABASE_NAME));
             }
             return databaseDeviceData;
+        }
+    }
+
+    public static DataServerService DataServer
+    {
+        get
+        {
+            if (dataServerService == null)
+            {
+                dataServerService = new DataServerService(
+                    Path.Combine(
+                        Environment.GetFolderPath(
+                            Environment.SpecialFolder.LocalApplicationData),
+                            DATABASE_NAME));
+            }
+            return dataServerService;
         }
     }
 

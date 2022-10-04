@@ -5,11 +5,13 @@ namespace MauiApp2
 {
     public static class Data
     {
+        public static DataServer serverData = App.DataServer.GetItems().First();
+
         // Строка подключения к Mysql 
-        public static string mysqlConString = "Server=92.255.229.102;Port=4000;" +
-                                          "Database=Offlink;" +
-                                          "Uid=Tester;" +
-                                          "Pwd=Init-123;" +
+        public static string mysqlConString = $"Server={serverData.Server};Port={serverData.Port};" +
+                                          $"Database={serverData.DataBase};" +
+                                          $"Uid={serverData.User};" +
+                                          $"Pwd={serverData.Password};" +
                                           "Default command timeout=120;";
 
         // Строка подключения к тестовому Mysql 
@@ -19,6 +21,6 @@ namespace MauiApp2
                                         "Pwd=OfflinkUser;" +
                                         "Default command timeout=120;";
 
-        public static MySqlConnection MysqlCon = new MySqlConnection(MysqlConTest);
+        public static MySqlConnection MysqlCon = new MySqlConnection(mysqlConString);
     }
 }

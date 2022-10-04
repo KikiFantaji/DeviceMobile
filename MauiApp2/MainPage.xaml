@@ -4,7 +4,10 @@
              xmlns:fa="http://schemas.fontawesome.com/icons/"
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI"
              x:Class="MauiApp2.MainPage"
-             Title="СЧЁТЧИКИ">
+             Title="">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="СЕРВЕР" Clicked="EditServer"/>
+    </ContentPage.ToolbarItems>
     <StackLayout Margin="5">
         <StackLayout Margin="5" VerticalOptions="StartAndExpand">
             <Label VerticalOptions="Center" Margin="25" Text="ОТСКАНИРУЙТЕ QR КОД" 

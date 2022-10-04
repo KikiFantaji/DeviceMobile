@@ -4,8 +4,7 @@
              x:Class="MauiApp2.Views.Pages.DeviceListPage"
              Title="DeviceListPage">
     <VerticalStackLayout>
-        <ListView x:Name="DeviceList" ItemsSource="{Binding}" Margin="5"
-                  ItemSelected="OnItemSelected">
+        <ListView x:Name="DeviceList" ItemsSource="{Binding}" Margin="5">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

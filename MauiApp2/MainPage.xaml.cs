@@ -207,4 +207,10 @@ public partial class MainPage : ContentPage
 
         return 0;
     }
+
+    private async void EditServer(object sender, EventArgs e)
+    {
+        var editServerPage = new EditServerDataPage();
+        await Navigation.PushAsync(editServerPage);
+    }
 }

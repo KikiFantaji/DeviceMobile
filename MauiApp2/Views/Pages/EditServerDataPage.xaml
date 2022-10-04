@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Views.Pages.EditServerDataPage"
+             Title="ДАННЫЕ">
+    <StackLayout Margin="5">
+        <Label Text="СЕРВЕР"  Margin="5"/>
+        <StackLayout Margin="5" BackgroundColor="LightGray">
+            <Entry x:Name="entryServer" Margin="5,0" BackgroundColor="LightGray" Keyboard="Telephone"/>
+        </StackLayout>
+        <Label Text="Порт"  Margin="5"/>
+        <StackLayout Margin="5" BackgroundColor="LightGray">
+            <Entry x:Name="entryPort" Margin="5,0" BackgroundColor="LightGray" Keyboard="Telephone"/>
+        </StackLayout>
+        <Label Text="БАЗА ДАННЫХ"  Margin="5"/>
+        <StackLayout Margin="5" BackgroundColor="LightGray">
+            <Entry x:Name="entryDatabase" Margin="5,0" BackgroundColor="LightGray" Keyboard="Default"/>
+        </StackLayout>
+        <Label Text="ПОЛЬЗОВАТЕЛЬ"  Margin="5"/>
+        <StackLayout Margin="5" BackgroundColor="LightGray">
+            <Entry x:Name="entryUser" Margin="5,0" BackgroundColor="LightGray" Keyboard="Default"/>
+        </StackLayout>
+        <Label Text="ПАРОЛЬ"  Margin="5"/>
+        <StackLayout Margin="5" BackgroundColor="LightGray">
+            <Entry x:Name="entryPassword" Margin="5,0" BackgroundColor="LightGray" Keyboard="Default"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="5">
+            <Button Text="СОХРАНИТЬ" Clicked="SaveData"  Margin="5"/>
+            <Button Text="НАЗАД" Clicked="Cancel" Margin="5"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
